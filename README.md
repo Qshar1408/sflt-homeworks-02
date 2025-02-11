@@ -132,8 +132,8 @@ listen stats  # веб-страница со статистикой
 frontend example  # секция фронтенд
         mode http
         bind :8088
-	    acl ACL_example.local hdr(host) -i example.local
-	    use_backend web_servers if ACL_example.local
+        acl ACL_example.local hdr(host) -i example.local
+        use_backend web_servers if ACL_example.local
 
 backend web_servers    # секция бэкенд
         mode http
@@ -142,7 +142,7 @@ backend web_servers    # секция бэкенд
         http-check send meth GET uri /index.html
         server s1 127.0.0.1:8888 weight 2 check
         server s2 127.0.0.1:8899 weight 3 check
-	    server s3 127.0.0.1:9999 weight 4 check
+        server s3 127.0.0.1:9999 weight 4 check
 
 ```
 
